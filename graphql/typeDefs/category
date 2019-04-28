@@ -1,0 +1,11 @@
+type Cate {
+    meta: Meta,
+    movies: [String],
+    _id: ObjectId,
+    name: String
+}
+
+extend type Query {
+    cate(_id: ObjectId, name: String): Cate
+    cateList: [Cate]
+}

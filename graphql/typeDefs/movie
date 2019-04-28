@@ -1,0 +1,30 @@
+type Meta {
+    createdAt: Date,
+    updatedAt: Date
+}
+
+type Pubdate {
+    date: String,
+    country: String
+}
+
+type Movie {
+    meta: Meta,
+    category: [String],
+    movieTypes: [String],
+    tags: [String],
+    _id: ObjectId,
+    doubanId: String,
+    title: String,
+    rate: Float,
+    poster: String,
+    pubdate: [Pubdate],
+    rawTitle: String,
+    summary: String,
+    year: Int
+}
+
+extend type Query {
+    movie(_id: ObjectId, title: String, doubanId: String): Movie
+    movies(pageSize: Int, pageNo: Int): [Movie]
+}
