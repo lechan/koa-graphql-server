@@ -11,7 +11,7 @@ const movieSchema = new Schema({
     }],
     rate: Number,
     title: String,
-    pinyin: [[String]],
+    pinyin: [String],
     summary: String,
     video: String,
     poster: String,
