@@ -18,7 +18,7 @@ export const getMovieData = async (ctx, next) => {
         return
     }
     const skip = (pageNo - 1) * pageSize
-    const list = await Movie.find({}).limit(Number(pageSize)).skip(skip).exec()
+    const list = await Movie.find({}).sort({createdAt: 1}).limit(Number(pageSize)).skip(skip).exec()
     const total = list.length
     if (list.length > 0) {
         ctx.body = {
