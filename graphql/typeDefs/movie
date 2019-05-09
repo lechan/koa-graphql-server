@@ -16,6 +16,8 @@ type Movie {
     _id: ObjectId,
     doubanId: String,
     title: String,
+    pinyin: String,
+    pinyinSplit: [String],
     rate: Float,
     poster: String,
     pubdate: [Pubdate],
