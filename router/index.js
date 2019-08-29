@@ -1,4 +1,5 @@
 import Router from 'koa-router'
+import { koa as voyagerMiddleware } from 'graphql-voyager/middleware';
 import { getCateData } from '../controllers/categories'
 import { getMovieData, associativeSearch, findMovie } from '../controllers/movies'
 
@@ -11,5 +12,9 @@ router.get(`${prefix}/cateList`, getCateData)
 router.get(`${prefix}/movieList`, getMovieData)
 router.get(`${prefix}/associate`, associativeSearch)
 router.get(`${prefix}/movie`, findMovie)
+
+router.all('/movies/voyager', voyagerMiddleware({
+  endpointUrl: '/movies/graphql'
+}));
 
 export default router
