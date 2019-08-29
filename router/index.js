@@ -13,8 +13,8 @@ router.get(`${prefix}/movieList`, getMovieData)
 router.get(`${prefix}/associate`, associativeSearch)
 router.get(`${prefix}/movie`, findMovie)
 
-router.all('/movies/voyager', voyagerMiddleware({
-  endpointUrl: '/movies/graphql'
+router.get(`${prefix}/voyager`, voyagerMiddleware({
+  endpointUrl: `${prefix}/graphql`
 }));
 
 export default router
